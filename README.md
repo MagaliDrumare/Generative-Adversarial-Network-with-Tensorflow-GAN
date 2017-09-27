@@ -1,13 +1,13 @@
 # A voir et à savoir :
 
-> #### - Les Generative Adversarial Networks (GANs) sont des algorithmes d'intelligence artificielle 
+#### - Les Generative Adversarial Networks (GANs) sont des algorithmes d'intelligence artificielle 
 utilisé dans le machine learning non supervisé (unsupervised machine learning). Ces  ont été inventés en 2014 par Ian Goodfellow. 
 
-> #### - Un GAN est composé de deux réseau : un Générateur (Generator) et un Discriminateur (Descriminator). 
+#### - Un GAN est composé de deux réseau : un Générateur (Generator) et un Discriminateur (Descriminator). 
 Le Générateur a comme inputs des données (Independant Gaussian Distribution et génère des images (Deconvolutional network)
 Le Discriminateur a comme inputs des images et génère un output VRAI/FAUX (Convolutional network)
 
-> #### - Architecture des réseaux de neurones 
+#### - Architecture des deux réseaux de neurones 
 * Générateur-Deconvolutional Network : génération de moins d'inputs et plus grands à chaque layer. 
 ![alt tag](https://cdn-images-1.medium.com/max/1600/1*WIhhgBzDQJFcj7CqPvzPdQ.png)
 
@@ -62,11 +62,11 @@ algorithmes
     return g4
 
 ```
-* Discriminateur-Convolutional Network : génération de plus d'inputs mais moins grands à chaque layer. 
+* Discriminateur-Convolutional Network : génération de plus d'inputs mais moins grands à chaque layer (voir CNN) 
 ![alt tag](https://i.stack.imgur.com/keDyv.png)
 
 
-> #### - Implémentation du GAN 
+#### - Implémentation du GAN 
 
 ```
 sess=tf.Session()
@@ -87,6 +87,32 @@ Dx= discriminator(x_placeholder)
 Dg = discriminator(Gz, reuse=True)
 
 ```
+
+#### - Les fonctions de coûts des GAN (Loss) 
+
+> Fonction de coût du Discriminateur: 
+Une équation de coût en deux parties
+(1)Première partie: les vraies images du "training set" sont reconnues correctement par le discriminateur. 
+(2)Deuxième partie : les fausses images générées par le générateur sont reconnues correctement par le discriminateur.
+
+> Fonction de coût du Générateur : 
+(3)Les fausses images générées par le discriminateur ne sont pas reconnues correctement par le discriminateur.
+
+> L'optimisation du DGAN est un match entre l'optimisation deux networks. Les DGAN ne sont pas faciles à entrainer. 
+
+```
+# (3)Generatorloss 
+g_loss=tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits(logits=Dg,labels=tf.one_like(Dg)))
+
+# Discriminator loss 
+#(1)First part 
+d_loss_real= tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits(logits=Dx,labels=tf.fill([batch_size,1], 0.9)))
+#(2)Second part 
+d-loss_fake = tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits(logits=Dg,labels=tf.zeros_like(Dg)))
+d_loss= d_loss_real+d_loss_fake
+
+```
+
 
 
 
