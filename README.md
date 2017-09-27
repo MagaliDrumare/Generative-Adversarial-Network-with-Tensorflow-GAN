@@ -2,10 +2,14 @@
 
 #### - Les Generative Adversarial Networks (GANs) sont des algorithmes d'intelligence artificielle 
 utilisé dans le machine learning non supervisé (unsupervised machine learning). Ces  ont été inventés en 2014 par Ian Goodfellow. 
+* NIPS 2016 Workshop on Adversarial Training:  https://youtu.be/RvgYvHyT15E
+* Generative Adversarial Networks Explained with a Classic Spongebob : https://medium.com/@awjuliani/generative-adversarial-networks-explained-with-a-classic-spongebob-squarepants-episode-54deab2fce39
+* Generative Adversarial Networks (LIVE) : https://www.youtube.com/watch?v=0VPQHbMvGzg (by Siraj Raval)
 
 #### - Un GAN est composé de deux réseau : un Générateur (Generator) et un Discriminateur (Descriminator). 
 Le Générateur a comme inputs des données (Independant Gaussian Distribution et génère des images (Deconvolutional network)
 Le Discriminateur a comme inputs des images et génère un output VRAI/FAUX (Convolutional network)
+
 
 #### - Architecture des deux réseaux de neurones 
 * Générateur-Deconvolutional Network : génération de moins d'inputs et plus grands à chaque layer. 
@@ -18,7 +22,8 @@ algorithmes
     z = tf.truncated_normal([batch_size, z_dim], mean=0, stddev=1, name='z')
     #first deconv block
     g_w1 = tf.get_variable('g_w1', [z_dim, 3136], dtype=tf.float32, initializer=tf.truncated_normal_initializer(stddev=0.02))by 
-    g_b1 = tf.get_variable('g_b1', [3136], initializer=tf.truncated_normal_initializer(stddev=0.02))
+    g_b1 = tf.get_variable('g_b1', [3136], 
+    initializer=tf.truncated_normal_initializer(stddev=0.02))
     g1 = tf.matmul(z, g_w1) + g_b1
     g1 = tf.reshape(g1, [-1, 56, 56, 1])
     g1 = tf.contrib.layers.batch_norm(g1, epsilon=1e-5, scope='bn1')
