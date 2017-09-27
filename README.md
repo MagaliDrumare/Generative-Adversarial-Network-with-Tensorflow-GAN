@@ -98,10 +98,10 @@ Dg = discriminator(Gz, reuse=True)
 > Fonction de coût du Discriminateur: 
 (3) Une équation de coût en deux parties
 - (1) Première partie: les vraies images du "training set" sont reconnues correctement par le discriminateur. 
-- (2) Deuxième partie : les fausses images générées par le générateur sont reconnues correctement par le discriminateur.
+- (2) Deuxième partie : les fausses images générées par le générateur sont reconnues correctement par le discriminateur (reconnues fausses). 
 
 > Fonction de coût du Générateur : 
-- (4) Les fausses images générées par le discriminateur ne sont pas reconnues correctement par le discriminateur.
+- (4) Les fausses images générées par le discriminateur ne sont pas reconnues correctement par le discriminateur (reconnues comme de vraies images) 
 
 > L'optimisation du DGAN est un match entre l'optimisation deux networks. Les DGAN ne sont pas faciles à entrainer. 
 
