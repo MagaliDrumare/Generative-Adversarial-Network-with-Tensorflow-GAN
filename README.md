@@ -96,25 +96,29 @@ Dg = discriminator(Gz, reuse=True)
 #### - Les fonctions de coûts des GAN (Loss) 
 
 > Fonction de coût du Discriminateur: 
-Une équation de coût en deux parties
-- (1)Première partie: les vraies images du "training set" sont reconnues correctement par le discriminateur. 
-- (2)Deuxième partie : les fausses images générées par le générateur sont reconnues correctement par le discriminateur.
+(3)Une équation de coût en deux parties
+- (1) Première partie: les vraies images du "training set" sont reconnues correctement par le discriminateur. 
+- (2) Deuxième partie : les fausses images générées par le générateur sont reconnues correctement par le discriminateur.
 
 > Fonction de coût du Générateur : 
-- (3)Les fausses images générées par le discriminateur ne sont pas reconnues correctement par le discriminateur.
+- (4) Les fausses images générées par le discriminateur ne sont pas reconnues correctement par le discriminateur.
 
 > L'optimisation du DGAN est un match entre l'optimisation deux networks. Les DGAN ne sont pas faciles à entrainer. 
 
 ```
-# (3)Generatorloss 
+# (4) Generatorloss 
 g_loss=tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits(logits=Dg,labels=tf.one_like(Dg)))
 
 # Discriminator loss 
 #(1)First part 
-d_loss_real= tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits(logits=Dx,labels=tf.fill([batch_size,1], 0.9)))
+d_loss_real= tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits
+(logits=Dx,labels=tf.fill([batch_size,1], 0.9)))
+
 #(2)Second part 
-d-loss_fake = tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits(logits=Dg,labels=tf.zeros_like(Dg)))
-d_loss= d_loss_real+d_loss_fake
+d-loss_fake = tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits
+(logits=Dg,labels=tf.zeros_like(Dg)))
+
+(3) d_loss= d_loss_real+d_loss_fake
 
 ```
 
