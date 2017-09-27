@@ -3,7 +3,7 @@
 > #### - Les Generative Adversarial Networks (GANs) sont des algorithmes d'intelligence artificielle 
 utilisé dans le machine learning non supervisé (unsupervised machine learning). Ces  ont été inventés en 2014 par Ian Goodfellow. 
 
-#### - Un GAN est composé de deux réseau : un Générateur (Generator) et un Discriminateur (Descriminator). 
+> #### - Un GAN est composé de deux réseau : un Générateur (Generator) et un Discriminateur (Descriminator). 
 Le Générateur a comme inputs des données (Independant Gaussian Distribution et génère des images (Deconvolutional network)
 Le Discriminateur a comme inputs des images et génère un output VRAI/FAUX (Convolutional network)
 
