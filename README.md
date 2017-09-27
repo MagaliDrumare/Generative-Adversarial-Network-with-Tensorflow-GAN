@@ -26,7 +26,8 @@ def generator(batch_size, z_dim):
     g1 = tf.nn.relu(g1)
 
     # Generate 50 features
-    g_w2 = tf.get_variable('g_w2', [3, 3, 1, z_dim/2], dtype=tf.float32, initializer=tf.truncated_normal_initializer(stddev=0.02))
+    g_w2 = tf.get_variable('g_w2', [3, 3, 1, z_dim/2], 
+    dtype=tf.float32, initializer=tf.truncated_normal_initializer(stddev=0.02))
     g_b2 = tf.get_variable('g_b2', [z_dim/2], 
     initializer=tf.truncated_normal_initializer(stddev=0.02))
     g2 = tf.nn.conv2d(g1, g_w2, strides=[1, 2, 2, 1], padding='SAME')
@@ -36,7 +37,8 @@ def generator(batch_size, z_dim):
     g2 = tf.image.resize_images(g2, [56, 56])
 
     # Generate 25 features
-    g_w3 = tf.get_variable('g_w3', [3, 3, z_dim/2, z_dim/4], dtype=tf.float32, initializer=tf.truncated_normal_initializer(stddev=0.02))
+    g_w3 = tf.get_variable('g_w3', [3, 3, z_dim/2, z_dim/4], 
+    dtype=tf.float32, initializer=tf.truncated_normal_initializer(stddev=0.02))
     g_b3 = tf.get_variable('g_b3', [z_dim/4], 
     initializer=tf.truncated_normal_initializer(stddev=0.02))
     g3 = tf.nn.conv2d(g2, g_w3, strides=[1, 2, 2, 1], padding='SAME')
@@ -46,7 +48,8 @@ def generator(batch_size, z_dim):
     g3 = tf.image.resize_images(g3, [56, 56])
 
     # Final convolution with one output channel = one big image 
-    g_w4 = tf.get_variable('g_w4', [1, 1, z_dim/4, 1], dtype=tf.float32, initializer=tf.truncated_normal_initializer(stddev=0.02))
+    g_w4 = tf.get_variable('g_w4', [1, 1, z_dim/4, 1], 
+    dtype=tf.float32, initializer=tf.truncated_normal_initializer(stddev=0.02))
     g_b4 = tf.get_variable('g_b4', [1], 
     initializer=tf.truncated_normal_initializer(stddev=0.02))
     g4 = tf.nn.conv2d(g3, g_w4, strides=[1, 2, 2, 1], padding='SAME')
