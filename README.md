@@ -66,7 +66,7 @@ algorithmes
 ![alt tag](https://i.stack.imgur.com/keDyv.png)
 
 
-#### - Impléme,tation du GAN 
+#### - Implémentation du GAN 
 
 ```
 sess=tf.Session()
