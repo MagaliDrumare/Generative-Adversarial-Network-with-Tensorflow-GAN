@@ -94,9 +94,9 @@ Dg = discriminator(Gz, reuse=True)
 ```
 
 #### - Les fonctions de coûts des GAN (Loss) 
-
+![alt tag](https://i.stack.imgur.com/zC5YW.png)
 > Fonction de coût du Discriminateur: 
-(3)Une équation de coût en deux parties
+(3) Une équation de coût en deux parties
 - (1) Première partie: les vraies images du "training set" sont reconnues correctement par le discriminateur. 
 - (2) Deuxième partie : les fausses images générées par le générateur sont reconnues correctement par le discriminateur.
 
