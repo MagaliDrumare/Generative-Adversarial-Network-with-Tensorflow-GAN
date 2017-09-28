@@ -4,6 +4,7 @@
 utilisé dans le machine learning non supervisé (unsupervised machine learning). Ces  ont été inventés en 2014 par Ian Goodfellow. 
 * NIPS 2016 Workshop on Adversarial Training:  https://youtu.be/RvgYvHyT15E
 * Generative Adversarial Networks Explained with a Classic Spongebob : https://medium.com/@awjuliani/generative-adversarial-networks-explained-with-a-classic-spongebob-squarepants-episode-54deab2fce39
+* Image Completion with Deep Learning in TensorFlow: https://bamos.github.io/2016/08/09/deep-completion/
 * Generative Adversarial Networks (LIVE) : https://www.youtube.com/watch?v=0VPQHbMvGzg (by Siraj Raval)
 
 #### - Un GAN est composé de deux réseaux : un Générateur (Generator) et un Discriminateur (Descriminator). 
