@@ -6,7 +6,7 @@ utilisé dans le machine learning non supervisé (unsupervised machine learning)
 * Generative Adversarial Networks Explained with a Classic Spongebob : https://medium.com/@awjuliani/generative-adversarial-networks-explained-with-a-classic-spongebob-squarepants-episode-54deab2fce39
 * Generative Adversarial Networks (LIVE) : https://www.youtube.com/watch?v=0VPQHbMvGzg (by Siraj Raval)
 
-#### - Un GAN est composé de deux réseau : un Générateur (Generator) et un Discriminateur (Descriminator). 
+#### - Un GAN est composé de deux réseaux : un Générateur (Generator) et un Discriminateur (Descriminator). 
 Le Générateur a comme inputs des données (Independant Gaussian Distribution et génère des images (Deconvolutional network)
 Le Discriminateur a comme inputs des images et génère un output VRAI/FAUX (Convolutional network)
 
