@@ -74,7 +74,7 @@ algorithmes
 
 #### - Implémentation du GAN 
 
-```
+```python
 sess=tf.Session()
 batch_size= 50 # 50 images 
 z_dimension = 100 # z can have a lot of dimension
@@ -106,7 +106,7 @@ Dg = discriminator(Gz, reuse=True)
 
 > L'optimisation du DGAN est un match entre l'optimisation des deux networks. 
 
-```
+```python
 # (4) Generatorloss 
 g_loss=tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits(logits=Dg,labels=tf.one_like(Dg)))
 
