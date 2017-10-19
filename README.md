@@ -116,7 +116,7 @@ d_loss_real= tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits
 (logits=Dx,labels=tf.fill([batch_size,1], 0.9)))
 
 #(2)Second part 
-d-loss_fake = tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits
+d_loss_fake = tf.reduce_mean(tf.nn.sigmoid_crossentropy_with_logits
 (logits=Dg,labels=tf.zeros_like(Dg)))
 
 (3) d_loss= d_loss_real+d_loss_fake
