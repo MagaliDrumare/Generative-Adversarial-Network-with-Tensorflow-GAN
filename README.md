@@ -16,7 +16,7 @@ Le Discriminateur a comme inputs des images et génère un output VRAI/FAUX (Con
 * Générateur-Deconvolutional Network : génération de moins d'inputs et plus grands à chaque layer. 
 ![alt tag](https://cdn-images-1.medium.com/max/1600/1*WIhhgBzDQJFcj7CqPvzPdQ.png)
 
-```
+```python
 def generator(batch_size, z_dim):
 algorithmes
 	# z = independant gaussian distribution 
