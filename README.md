@@ -102,7 +102,7 @@ Dg = discriminator(Gz, reuse=True)
 - (2) Deuxième partie : les fausses images générées par le générateur sont reconnues correctement par le discriminateur (reconnues fausses). 
 
 > Fonction de coût du Générateur : 
-- (4) Les fausses images générées par le discriminateur ne sont pas reconnues correctement par le discriminateur (reconnues comme de vraies images) 
+- (4) Les fausses images générées par le générateur ne sont pas reconnues correctement par le discriminateur (reconnues comme de vraies images) 
 
 > L'optimisation du DGAN est un match entre l'optimisation des deux networks. 
 
